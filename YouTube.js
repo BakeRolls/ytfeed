@@ -64,6 +64,7 @@ class YouTube {
 
 		this.resolve({
 			title: this.title || feed.title,
+			author: feed.author[0].name,
 			link: feed.author[0].uri,
 			description: this.filter,
 			'itunes:image': { $: {

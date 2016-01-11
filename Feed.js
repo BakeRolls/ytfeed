@@ -7,7 +7,10 @@ class Feed {
 	constructor() {
 		this.builder = new xml2js.Builder({
 			cdata: true,
-			xmldec: { allowSurrogateChars: true }
+			xmldec: {
+				encoding: 'UTF-8',
+				allowSurrogateChars: true
+			}
 		})
 	}
 
@@ -28,8 +31,7 @@ class Feed {
 		return this.buildObject({
 			rss: {
 				$: config.feedHeader,
-				channel: channel,
-				item: item
+				channel: channel
 			}
 		})
 	}
