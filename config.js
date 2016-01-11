@@ -1,6 +1,6 @@
 module.exports = {
 	port: 61737,
-	base: 'https://yt.192k.pw/',
+	lang: 'de-DE',
 	baseAPI: 'https://www.youtube.com/feeds/videos.xml?',
 	formats: {
 		144: { id: 17, type: 'video/mp4' },

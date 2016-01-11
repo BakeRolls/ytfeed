@@ -42,10 +42,12 @@ app.get('/:channel([a-z0-9_\-]{1,50})/:filter([a-z0-9_\-]{1,50})?', (req, res) =
 
 	let channel = req.params.channel
 	let filter = req.params.filter || ''
+	let host = req.protocol + '://' + req.get('host')
+	let path = req.originalUrl
 	let format = (config.formats[req.query.format]) ? req.query.format : config.defaultFormat
 	let title = (req.query.title) ? req.query.title.substring(0, 50) : undefined
 
-	new YouTube(channel, filter, format, title).then((data) => {
+	new YouTube(channel, filter, format, title, host, path).then((data) => {
 		res.send(build(data, !!req.query.json))
 	}, (err) => {
 		res.send(build({
