@@ -14,6 +14,7 @@ function build(data, json) {
 }
 
 app.get('/', (req, res) => {
+	res.setHeader('content-type', 'application/rss+xml')
 	res.send(build({
 		title: 'Error',
 		link: 'https://192k.pw/2015/12/06/youtube-podcast-feeds/',
