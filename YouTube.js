@@ -59,6 +59,10 @@ class YouTube {
 					type: config.formats[this.format].type,
 					length: 0
 				} },
+				'itunes:summary': entry['media:group'][0]['media:description'],
+				'itunes:duration': 0,
+				'itunes:subtitle': entry.title[0],
+				'itunes:author': feed.author[0].name,
 				'itunes:image': { $: {
 					href: entry['media:group'][0]['media:thumbnail'][0].$.url
 				} }
@@ -70,6 +74,7 @@ class YouTube {
 			link: feed.author[0].uri,
 			description: this.filter,
 			language: config.lang,
+			lastBuildDate: new Date().toUTCString(),
 			image: {
 				title: feed.title,
 				link: feed.author[0].uri,
