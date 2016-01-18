@@ -41,7 +41,7 @@ app.get('/:channel([a-z0-9_\-]{1,50})/:filter([a-z0-9_\-]{1,50})?', (req, res) =
 
 	let channel = req.params.channel
 	let filter = req.params.filter || ''
-	let host = 'http' + (https(req) ? 's' : '') + '://' + req.get('host')
+	let host = 'http' + (https(req) ? 's' : '') + '://' + config.host
 	let path = req.originalUrl
 	let format = (config.formats[req.query.format]) ? req.query.format : config.defaultFormat
 	let title = (req.query.title) ? req.query.title.substring(0, 50) : undefined
