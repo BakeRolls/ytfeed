@@ -17,7 +17,7 @@ class Feed {
 	parse(xml) {
 		return new Promise((resolve, reject) => {
 			xml2js.parseString(xml, (err, res) => {
-				if(err) reject(err)
+				if (err) return reject(err)
 
 				resolve(res.feed)
 			})
@@ -25,7 +25,7 @@ class Feed {
 	}
 
 	build(channel, item) {
-		channel = channel || {}
+		channel = channel || {}
 		item = item || []
 
 		return this.buildObject({
